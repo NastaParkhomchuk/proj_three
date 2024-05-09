@@ -11,18 +11,19 @@ class GoogleCloudHomePage {
     }
 
     async clickSearchIcon() {
-        await this.browser.click(this.searchIcon);
+        await this.browser.elementClick(this.searchIcon);
     }
 
     async enterSearchQuery(query) {
-        await this.browser.setValue(this.searchInput, query);
+        const searchInputElem = await this.browser.$(this.searchInput);
+        await searchInputElem.elementSendKeys(query);
         await this.browser.keys('Enter');
     }
+
 
     async getSearchResultLinkText() {
         const linkElement = await this.browser.$(this.searchResultLink);
         return linkElement.getText();
     }
 }
-
 module.exports = GoogleCloudHomePage;
