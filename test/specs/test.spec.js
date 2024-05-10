@@ -29,35 +29,23 @@ describe('Search functionality', () => {
         browser.keys('Enter');
 
         const searchResults = $('.search-results');
-                // expect(searchResults).to.exist;
+        // expect(searchResults).to.exist;
         expect(searchResults.isExisting());
     });
 });
-// describe('Google Cloud Platform Pricing Calculator', () => {
-//     let browser;
-
-//     before(async () => {
-//         browser = await remote({
-//             capabilities: {
-//                 browserName: 'chrome'
-//             }
-//         });
-//         await browser.url('https://cloud.google.com');
-//     });
-
-//     it('should search for "Google Cloud Platform Pricing Calculator"', async () => {
-//         const searchIcon = $('[jsname="Z5wyCf"]');
-//         searchIcon.click();
-
-//         const searchField = $('#i4');
-//         searchField.setValue('Google Cloud Platform Pricing Calculator');
-
-//         browser.keys('Enter');
 
 
-//         const searchResults = $('.search-results');
-//         expect(searchResults).to.exist;
-//     });
-// });
 
-//     
+
+
+
+it('should navigate to Pricing Calculator', async () => {
+    const pricingCalculatorLink = $('div.Nyd2Jd > div.x9K9hf.QKrqHf > a.K5hUy[href="https://cloud.google.com/pricing"]');
+    expect(await pricingCalculatorLink.isExisting()).toBe(true);
+    await pricingCalculatorLink.click();
+    await browser.waitUntil(async () => {
+        return (await browser.getUrl()) === 'https://cloud.google.com/pricing';
+    }, { timeout: 10000, timeoutMsg: 'Pricing Calculator page not loaded within 10 seconds' });
+    const currentUrl = await browser.getUrl();
+    expect(currentUrl).toBe('https://cloud.google.com/pricing');
+});
