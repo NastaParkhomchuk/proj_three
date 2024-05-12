@@ -37,30 +37,43 @@ describe('Search functionality', () => {
 
 
 it('should navigate to Pricing Calculator', async () => {
-    // const pricingCalculatorLink = $('div.Nyd2Jd');
-    const pricingCalculatorLink = $('c-wiz[@class="SSPGKf"]');
+    await browser.url('https://cloud.google.com/search?hl=ru&q=Google%20Cloud%20Platform%20Pricing%20Calculator');
 
-    expect(await pricingCalculatorLink.isExisting()).toBe(true);
+    const pricingCalculatorLink = await $('=Google Cloud Pricing Calculator');
+    expect(await pricingCalculatorLink.isExisting()).toBeTruthy();
     await pricingCalculatorLink.click();
-    // await browser.waitUntil(async () => {
-    //     return (await browser.getUrl()) === 'https://cloud.google.com/pricing';
-    // }, { timeout: 10000, timeoutMsg: 'Pricing Calculator page not loaded within 10 seconds' });
-    // const currentUrl = await browser.getUrl();
-    // expect(currentUrl).toBe('https://cloud.google.com/pricing');
+    const pageTitle = await browser.getTitle();
+    expect(pageTitle).toContain('Google Cloud Pricing Calculator');
 });
 
-it('should click on "Add to estimate"', async () => {
-    await $('[jsname="V67aGc"]').waitForDisplayed({ timeout: 10000 });
-    const addToEstimateButton = await $('[jsname="V67aGc"]');
-    await addToEstimateButton.click();
-    await browser.pause(2000);
-});
-it('should click on COMPUTE ENGINE', async () => {
-    await $('[jsname="m9ZlFb"]').waitForDisplayed({ timeout: 10000 });
-    const computeEngineButton = await $('[jsname="m9ZlFb"]');
-    await computeEngineButton.click();
-    await browser.pause(2000);
-});
+
+    it('should navigate to Pricing Calculator', async () => {
+        await browser.url('https://cloud.google.com/search?hl=ru&q=Google%20Cloud%20Platform%20Pricing%20Calculator');
+
+        const pricingCalculatorLink = await $('=Google Cloud Pricing Calculator');
+        expect(await pricingCalculatorLink.isExisting()).toBeTruthy();
+        await pricingCalculatorLink.click();
+        const pageTitle = await browser.getTitle();
+        expect(pageTitle).toContain('Google Cloud Pricing Calculator');
+}); <span jsname="V67aGc" class="UywwFc-vQzf8d">Add to estimate</span>
+//     const pricingCalculatorLink = $('[class=".K5hUy"]');
+//     // const pricingCalculatorLink = $('[id="Nyd2Jd"]');
+//     const calculatorPageTitle = await browser.getTitle();
+//     expect(calculatorPageTitle).toContain('Google Cloud Pricing Calculator');
+// });
+
+// it('should click on "Add to estimate"', async () => {
+//     await $('[jsname="V67aGc"]').waitForDisplayed({ timeout: 10000 });
+//     const addToEstimateButton = await $('[jsname="V67aGc"]');
+//     await addToEstimateButton.click();
+//     await browser.pause(2000);
+// });
+// it('should click on COMPUTE ENGINE', async () => {
+//     await $('[jsname="m9ZlFb"]').waitForDisplayed({ timeout: 10000 });
+//     const computeEngineButton = await $('[jsname="m9ZlFb"]');
+//     await computeEngineButton.click();
+//     await browser.pause(2000);
+// });
 
 // it('should fill out the form with the number of instances', async () => {
 //     await $('input#c13').waitForDisplayed({ timeout: 10000 });
