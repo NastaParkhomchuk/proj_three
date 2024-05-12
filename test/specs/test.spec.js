@@ -32,10 +32,6 @@ describe('Search functionality', () => {
 });
 
 
-
-// all what is down not working:
-
-
 it('should navigate to Pricing Calculator', async () => {
     await browser.url('https://cloud.google.com/search?hl=ru&q=Google%20Cloud%20Platform%20Pricing%20Calculator');
 
@@ -47,15 +43,19 @@ it('should navigate to Pricing Calculator', async () => {
 });
 
 
-    it('should navigate to Pricing Calculator', async () => {
-        await browser.url('https://cloud.google.com/search?hl=ru&q=Google%20Cloud%20Platform%20Pricing%20Calculator');
 
-        const pricingCalculatorLink = await $('=Google Cloud Pricing Calculator');
-        expect(await pricingCalculatorLink.isExisting()).toBeTruthy();
-        await pricingCalculatorLink.click();
-        const pageTitle = await browser.getTitle();
-        expect(pageTitle).toContain('Google Cloud Pricing Calculator');
-}); <span jsname="V67aGc" class="UywwFc-vQzf8d">Add to estimate</span>
+
+
+it('should tap on the button Add to estimate', async () => {
+    browser.url('https://cloud.google.com/products/calculator?hl=en');
+    await $('button.UywwFc-LgbsSe').click();
+    await browser.switchToFrame(сomputeEngine); 
+    // await $('button.computeEngineButtonClass').click();
+    await $('button[data-target="aHij0b-WsjYwc b9Ejl"]').click();
+
+});
+
+//<span jsname="V67aGc" class="UywwFc-vQzf8d">Add to estimate</span>
 //     const pricingCalculatorLink = $('[class=".K5hUy"]');
 //     // const pricingCalculatorLink = $('[id="Nyd2Jd"]');
 //     const calculatorPageTitle = await browser.getTitle();
