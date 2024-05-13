@@ -49,13 +49,10 @@ it('should navigate to Pricing Calculator', async () => {
 it('should tap on the button Add to estimate', async () => {
     browser.url('https://cloud.google.com/products/calculator?hl=en');
     await $('button.UywwFc-LgbsSe').click();
-    await browser.switchToFrame(сomputeEngine); 
-    // await $('button.computeEngineButtonClass').click();
-    await $('button[data-target="aHij0b-WsjYwc b9Ejl"]').click();
-
+    const selector = '[tabindex="0"][jscontroller="KRZHBd"][role="button"]';
+    const button = await $(selector);
+    await button.click();
 });
-
-//<span jsname="V67aGc" class="UywwFc-vQzf8d">Add to estimate</span>
 //     const pricingCalculatorLink = $('[class=".K5hUy"]');
 //     // const pricingCalculatorLink = $('[id="Nyd2Jd"]');
 //     const calculatorPageTitle = await browser.getTitle();
