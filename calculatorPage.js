@@ -35,4 +35,28 @@ class CalculatorPage {
     }
 }
 
+class CalculatorPage {
+    get machineTypeDropdown() { return $('div.O1htCb-H9tDt span.VfPpkd-rul__trigger'); }
+    get machineTypeOption() { return $(`//span[text()="Machine type"]/ancestor::div[contains(@class, "O1htCb-H9tDt")]//div[contains(text(), "n1-standard-8")]`); }
+
+    async selectMachineType(machineType) {
+        await this.machineTypeDropdown.click();
+        await this.machineTypeOption.waitForClickable({ timeout: 5000 });
+        await this.machineTypeOption.click();
+    }
+}
+class CalculatorPage {
+    get addGPUsButton() { return $('button[jsname="DMn7nd"]'); }
+
+    async clickAddGPUsButton() {
+        await this.addGPUsButton.waitForClickable({ timeout: 5000 });
+        await this.addGPUsButton.click();
+    }
+
+    async isAddGPUsButtonChecked() {
+        const isChecked = await this.addGPUsButton.getAttribute('aria-checked');
+        return isChecked === 'true';
+    }
+}
+
 module.exports = new CalculatorPage();
