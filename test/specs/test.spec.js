@@ -53,25 +53,28 @@ it('should tap on the button Add to estimate', async () => {
     const button = await $(selector);
     await button.click();
 });
-//     const pricingCalculatorLink = $('[class=".K5hUy"]');
-//     // const pricingCalculatorLink = $('[id="Nyd2Jd"]');
-//     const calculatorPageTitle = await browser.getTitle();
-//     expect(calculatorPageTitle).toContain('Google Cloud Pricing Calculator');
-// });
 
-// it('should click on "Add to estimate"', async () => {
-//     await $('[jsname="V67aGc"]').waitForDisplayed({ timeout: 10000 });
-//     const addToEstimateButton = await $('[jsname="V67aGc"]');
-//     await addToEstimateButton.click();
-//     await browser.pause(2000);
-// });
-// it('should click on COMPUTE ENGINE', async () => {
-//     await $('[jsname="m9ZlFb"]').waitForDisplayed({ timeout: 10000 });
-//     const computeEngineButton = await $('[jsname="m9ZlFb"]');
-//     await computeEngineButton.click();
-//     await browser.pause(2000);
-// });
 
+it('should fill out the form with the number of instances', async () => {
+    await $('input[jsname="YPqjbf"]').waitForDisplayed({ timeout: 10000 });
+    const numberOfInstancesInput = await $('input[jsname="YPqjbf"]');
+    await numberOfInstancesInput.setValue(4);
+    await browser.pause(2000);
+});
+
+
+
+// it('should ', async () => {
+//     browser.url('https://cloud.google.com/products/calculator?hl=ru&dl=CiRkMThmYWE2Yi04M2I0LTQ0N2MtOWQ3ZC03ODRiZThjYmJlYzAQCBokQTJGMjREMzUtNTIyMi00OTNELTk0M0QtNEZBNkNDQjlGRkIw');
+//     await $('button.').click();
+//     const selector = '[tabindex="0"][jscontroller="KRZHBd"][role="button"]';
+//     const button = await $(selector);
+//     await button.click();
+//     //<input jsname="YPqjbf" type="number" value="1" id="c11" class="qdOxv-fmcmS-wGMbrd" jsaction="input:YPqjbf; required="true" aria-invalid="false">
+// });
+//<div class="VfPpkd-aPP78e"></div>
+//     
+// 
 // it('should fill out the form with the number of instances', async () => {
 //     await $('input#c13').waitForDisplayed({ timeout: 10000 });
 //     const numberOfInstancesInput = await $('input#c13');
