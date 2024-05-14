@@ -78,7 +78,7 @@ it('Fill out the form on the Google Cloud calculator page', async () => {
 
 //class="VfPpkd-xl07Ob-XxIAqe VfPpkd-xl07Ob-XxIAqe-OWXEXe-tsQazb VfPpkd-xl07Ob VfPpkd-YPmvEd IWDrLe"
 // < class="MCs1Pd HiC7Nc VfPpkd-OkbHre VfPpkd-aJasdd-RWgCYc-wQNmvb VfPpkd-rymPhb-ibnC6b VfPpkd-rymPhb-ibnC6b-OWXEXe-gk6SMd VfPpkd-rymPhb-ibnC6b-OWXEXe-SfQLQb-Woal0c-RWgCYc" jsaction=" keydown:RDtNu; keyup:JdS61c; click:o6ZaF; mousedown:teoBgf; mouseup:NZPHBc; mouseleave:xq3APb; touchstart:jJiBRc; touchmove:kZeBdd; touchend:VfAz8;focusin:MeMJlc; focusout:bkTmIf;mouseenter:SKyDAe; change:uOgbud" role="option" aria-selected="true" tabindex="0" data-value="free-debian-centos-coreos-ubuntu-or-byol-bring-your-own-license"  data-708c49e2-dcf0-4d62-b457-88577bfe3081="Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)"><span class="VfPpkd-rymPhb-pZXsl"></span><div class="ZM72od BGm30"></div>< class="VfPpkd-rymPhb-Gtdoyb">< class="VfPpkd-rymPhb-fpDzbe-fmcmS" jsname="K4r5Ff" 
-const YourPageObject = require('/Users/anastasiaparkhomchuk/Desktop/proj_wdiothree/proj_three/YourPageObject.js');
+const YourPageObject = require('../YourPageObject.js');
 
 describe('Provisioning Model Selection', () => {
     it('should select the Regular provisioning model', async () => {
@@ -90,7 +90,7 @@ describe('Provisioning Model Selection', () => {
     });
 });
 
-const CalculatorPage = require('/Users/anastasiaparkhomchuk/Desktop/proj_wdiothree/proj_three/calculatorPage.js');
+const CalculatorPage = require('../calculatorPage.js');
 
 describe('Google Cloud Pricing Calculator Tests', () => {
     it('should select machine type n1-standard-8', async () => {
