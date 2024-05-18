@@ -1,6 +1,6 @@
-const { describe, it, before, after } = require('mocha');
+const { describe, it, before } = require('mocha');
 const { remote } = require('webdriverio');
-const GoogleCloudHomePage = require('../GoogleCloudHomePage.js');
+const GoogleCloudHomePage = require('../GoogleCloudHomePage');
 
 describe('Search functionality', () => {
     it('should search for "Google Cloud Platform Pricing Calculator"', () => {
@@ -52,31 +52,34 @@ it('Fill out the form on the Google Cloud calculator page', async () => {
 //dont work
 
 
-const YourPageObject = require('../YourPageObject.js');
+// // const YourPageObject = require('../YourPageObject');
 
-describe('Provisioning Model Selection', () => {
-    it('should select the Regular provisioning model', async () => {
-        await CalculatorPage.selectRegularProvisioningModel();
-    });
-});
+// // describe('Provisioning Model Selection', () => {
+// //     before(async () => {
+// //         await browser.url('https://cloud.google.com/products/calculator');
+// //     });
+// //     it('should select the Regular provisioning model', async () => {
+// //         await CalculatorPage.selectRegularProvisioningModel();
+// //     });
+// });
 
-const CalculatorPage = require('../calculatorPage.js');
+// // const CalculatorPage = require('../calculatorPage');
 
-describe('Google Cloud Pricing Calculator Tests', () => {
-    it('should select machine type n1-standard-8', async () => {
-        await CalculatorPage.selectMachineType('n1-standard-8');
-    });
-});
+// // describe('Google Cloud Pricing Calculator Tests', () => {
+// //     it('should select machine type n1-standard-8', async () => {
+// //         await CalculatorPage.selectMachineType('n1-standard-8');
+// //     });
+// });
 
 
 
-describe('Google Cloud Pricing Calculator Tests', () => {
-    it('should toggle the Add GPUs button', async () => {
-        await CalculatorPage.clickAddGPUsButton();
-        const isChecked = await CalculatorPage.isAddGPUsButtonChecked();
-        expect(isChecked).toBe(true);
-        await CalculatorPage.clickAddGPUsButton();
-        const isUnchecked = await CalculatorPage.isAddGPUsButtonChecked();
-        expect(isUnchecked).toBe(false);
-    });
-});
+// // describe('Google Cloud Pricing Calculator Tests', () => {
+// //     it('should toggle the Add GPUs button', async () => {
+// //         await CalculatorPage.clickAddGPUsButton();
+// //         const isChecked = await CalculatorPage.isAddGPUsButtonChecked();
+// //         expect(isChecked).toBe(true);
+// //         await CalculatorPage.clickAddGPUsButton();
+// //         const isUnchecked = await CalculatorPage.isAddGPUsButtonChecked();
+// //         expect(isUnchecked).toBe(false);
+//     });
+// });

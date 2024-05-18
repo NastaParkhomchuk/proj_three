@@ -9,6 +9,11 @@ class CalculatorPage {
     get datacenterLocationDropdown() { return $('[aria-labelledby="i31 i32"]'); }
     get committedUsageDropdown() { return $('[aria-labelledby="i33 i34"]'); }
 
+
+    // get machineTypeDropdown() { return $('div.O1htCb-H9tDt span.VfPpkd-rul__trigger'); }
+    // get machineTypeOption() { return $(`//span[text()="Machine type"]/ancestor::div[contains(@class, "O1htCb-H9tDt")]//div[contains(text(), "n1-standard-8")]`); }
+
+    // Methods
     async fillForm() {
         await this.machineFamilyDropdown.click();
         await $('[jsname="Fb0Bif"][aria-label="General Purpose"]').click();
@@ -33,20 +38,13 @@ class CalculatorPage {
         await this.committedUsageDropdown.click();
         await $('[for="1-year"]').click();
     }
-}
-
-class CalculatorPage {
-    get machineTypeDropdown() { return $('div.O1htCb-H9tDt span.VfPpkd-rul__trigger'); }
-    get machineTypeOption() { return $(`//span[text()="Machine type"]/ancestor::div[contains(@class, "O1htCb-H9tDt")]//div[contains(text(), "n1-standard-8")]`); }
 
     async selectMachineType(machineType) {
         await this.machineTypeDropdown.click();
-        await this.machineTypeOption.waitForClickable({ timeout: 5000 });
-        await this.machineTypeOption.click();
+        const machineTypeOption = await $(`//div[contains(text(), "${machineType}")]`);
+        await machineTypeOption.waitForClickable({ timeout: 5000 });
+        await machineTypeOption.click();
     }
-}
-class CalculatorPage {
-    get addGPUsButton() { return $('button[jsname="DMn7nd"]'); }
 
     async clickAddGPUsButton() {
         await this.addGPUsButton.waitForClickable({ timeout: 5000 });
@@ -57,6 +55,31 @@ class CalculatorPage {
         const isChecked = await this.addGPUsButton.getAttribute('aria-checked');
         return isChecked === 'true';
     }
+
+async selectRegularProvisioningModel() {
+    const regularProvisioningRadioButton = await $('input#regular');
+    await regularProvisioningRadioButton.waitForDisplayed({ timeout: 10000 });
+    await regularProvisioningRadioButton.click();
 }
 
+    async navigateToPricingCalculator() {
+    await browser.url('https://cloud.google.com/search?hl=ru&q=Google%20Cloud%20Platform%20Pricing%20Calculator');
+    const pricingCalculatorLink = await $('=Google Cloud Pricing Calculator');
+    await pricingCalculatorLink.waitForDisplayed();
+    await pricingCalculatorLink.click();
+}
+
+    async tapOnAddToEstimateButton() {
+    await browser.url('https://cloud.google.com/products/calculator?hl=en');
+    const addToEstimateButton = await $('button.UywwFc-LgbsSe');
+    await addToEstimateButton.click();
+}
+
+    async fillNumberOfInstances(number) {
+    const numberOfInstancesInput = await $('input[jsname="YPqjbf"]');
+    await numberOfInstancesInput.waitForDisplayed({ timeout: 10000 });
+    await numberOfInstancesInput.setValue(number);
+    await browser.pause(2000);
+}
+}
 module.exports = new CalculatorPage();
